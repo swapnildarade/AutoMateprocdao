@@ -1,0 +1,99 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class JavaFileCreator2 {
+
+	public static void main(String[] args) {
+		String inputPath = "D:\\javafiles";
+		String outputPath = "C:\\Users\\Swapnil Darade\\OneDrive\\Desktop\\GENERATED";
+		String dtoFileExtension = "DTO";
+		String[] fileNames = getJavaFiles(inputPath);
+
+		for (String fileName : fileNames) {
+			if (fileName.toUpperCase().endsWith(dtoFileExtension)) {
+				String name1 = fileName.substring(0, fileName.length() - 3);
+				createCtrlFile(name1, outputPath);
+				createProcFile(name1, outputPath);
+				createDAOFile(name1, outputPath);
+			}
+		}
+	}
+
+	public static String[] getJavaFiles(String folderPath) {
+		File folder = new File(folderPath);
+		File[] files = folder.listFiles((dir, name) -> name.endsWith(".java"));
+		String[] fileNames = new String[files.length];
+		for (int i = 0; i < files.length; i++) {
+			fileNames[i] = files[i].getName().substring(0, files[i].getName().lastIndexOf("."));
+		}
+		return fileNames;
+	}
+
+	public static void createCtrlFile(String name1, String outputPath) {
+		String fileName = name1 + "Ctrl.java";
+		try {
+			FileWriter writer = new FileWriter(outputPath + "\\" + fileName);
+			writer.write("import org.springframework.stereotype.Controller;\n\n");
+			writer.write("@Controller\n");
+			writer.write("public class " + fileName.substring(0, fileName.lastIndexOf(".")) + " {\n\n");
+			writer.write("    public Object fetch() {\n");
+			writer.write("        // Add fetch logic here\n");
+			writer.write("        return new Object();\n");
+			writer.write("    }\n\n");
+			writer.write("    public Object save() {\n");
+			writer.write("        // Add save logic here\n");
+			writer.write("        return new Object();\n");
+			writer.write("    }\n\n");
+			writer.write("}");
+			writer.close();
+			System.out.println("Created " + fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void createProcFile(String name1, String outputPath) {
+		String fileName = name1 + "Proc.java";
+		try {
+			FileWriter writer = new FileWriter(outputPath + "\\" + fileName);
+			writer.write("public class " + fileName.substring(0, fileName.lastIndexOf(".")) + " {\n\n");
+			writer.write("    public Object fetch() {\n");
+			writer.write("        // Add fetch logic here\n");
+			writer.write("        return new Object();\n");
+			writer.write("    }\n\n");
+			writer.write("    public Object save() {\n");
+			writer.write("        // Add save logic here\n");
+			writer.write("        return new Object();\n");
+			writer.write("    }\n\n");
+			writer.write("}");
+			writer.close();
+			System.out.println("Created " + fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Object createDAOFile(String name1, String outputPath) {
+		String fileName = name1 + "DAO.java";
+		try {
+			/* FileWriter writer = new FileWriter(fileName); */
+			FileWriter writer = new FileWriter(outputPath + "\\" + fileName);
+
+			writer.write("public class " + fileName.substring(0, fileName.lastIndexOf(".")) + " {\n\n");
+			writer.write("    public Object fetch() {\n");
+			writer.write("        // Add fetch logic here\n");
+			writer.write("        return new Object();\n");
+			writer.write("    }\n\n");
+			writer.write("    public void save(Object obj) {\n");
+			writer.write("        // Add save logic here\n");
+			writer.write("    }\n\n");
+			writer.write("}");
+			writer.close();
+			System.out.println("Created " + fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return new Object();
+	}
+}
