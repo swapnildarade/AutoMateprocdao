@@ -1,0 +1,20 @@
+INDEX VERSION 1.4+D:\eclips ide backup\Ass4\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4219279280.index
+1045750561.index
+3331539933.index
+2888233541.index
+63322037.index
+155704535.index
+3289456556.index
+206845351.index
+289992809.index
+3569731602.index
+381103790.index
+3269437177.index
+1595694945.index
+2797555107.index
+2263789866.index
+1265224524.index
+1934793394.index
+2946856635.index
+1664916532.index
